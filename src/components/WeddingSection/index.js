@@ -45,7 +45,7 @@ function WeddingSection({ isInvitation }) {
                 />
                 <WeddingInfoBox
                   title="Recepción de Bodas"
-                  time="Según horario en el e-ticket"
+                  time="15:00 PM"
                   date="Sábado, 9 de Mayo de 2026"
                   description="El Alto, La Paz, Bolivia"
                 />

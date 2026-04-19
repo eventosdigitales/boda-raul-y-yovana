@@ -6,6 +6,7 @@ import WeddingImg from '@assets/images/wedding-logo.png';
 import CountContainer from './CountContainer';
 import ScrollToDown from './ScrollToDown';
 import RingsAnimation from './RingsAnimation';
+import Butterflies from './Butterflies';
 import {
   styWrapper,
   styHero,
@@ -76,6 +77,7 @@ function WelcomeSection({ location, guestName, isInvitation, isAnonymGuest, code
         data-stellar-background-ratio="0.5"
       >
         <div className="overlay"></div>
+        <Butterflies />
         <RingsAnimation />
         <div className="container">
           <div className="row" css={styWrapper}>

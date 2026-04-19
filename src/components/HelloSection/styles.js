@@ -249,6 +249,14 @@ export const styLocation = css`
     margin-bottom: 8px;
   }
 
+  .location-time {
+    font-size: 17px;
+    font-weight: 700;
+    color: #c9a84c;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+
   .location-address {
     font-size: 15px;
     color: #828282;

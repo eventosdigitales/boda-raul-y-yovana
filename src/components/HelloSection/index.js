@@ -132,6 +132,7 @@ function HelloSection({ isInvitation }) {
             <div className="col-md-8 col-md-offset-2 text-center">
               <h2 className="main-font location-title">Lugar de la Recepción</h2>
               <p className="location-name">Salón de Eventos Belleza Tropical</p>
+              <p className="location-time">Hora: 15:00 PM</p>
               <p className="location-address">
                 Zona Antofagasta, Av. Incahuasi N° 218,<br />
                 entrada a Chijimarca — frente al local Joyita<br />
