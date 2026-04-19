@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { object, string, bool, func } from 'prop-types';
+import { string, bool, func } from 'prop-types';
 import { Link } from 'gatsby';
 
 import WeddingImg from '@assets/images/wedding-logo.png';
@@ -7,6 +7,7 @@ import CountContainer from './CountContainer';
 import ScrollToDown from './ScrollToDown';
 import RingsAnimation from './RingsAnimation';
 import Butterflies from './Butterflies';
+import Fireworks from './Fireworks';
 import {
   styWrapper,
   styHero,
@@ -21,7 +22,13 @@ import {
 
 const DELAY_TIME = 1500;
 
-function WelcomeSection({ location, guestName, isInvitation, isAnonymGuest, codeLink, onClickDetail }) {
+const checkIsWeddingDay = () => {
+  const bolivia = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/La_Paz' }));
+  return bolivia.getFullYear() === 2026 && bolivia.getMonth() === 4 && bolivia.getDate() === 9;
+};
+
+function WelcomeSection({ guestName, isInvitation, isAnonymGuest, codeLink, onClickDetail }) {
+  const isWeddingDay = checkIsWeddingDay();
   const [loading, setLoading] = useState(false);
   const [alreadyDownloadData, setAlreadyDownloadData] = useState(false);
 
@@ -78,6 +85,7 @@ function WelcomeSection({ location, guestName, isInvitation, isAnonymGuest, code
       >
         <div className="overlay"></div>
         <Butterflies />
+        {isWeddingDay && <Fireworks />}
         <RingsAnimation />
         <div className="container">
           <div className="row" css={styWrapper}>
@@ -137,7 +145,6 @@ WelcomeSection.propTypes = {
   guestName: string.isRequired,
   isInvitation: bool.isRequired,
   isAnonymGuest: bool.isRequired,
-  location: object.isRequired,
   codeLink: string,
   onClickDetail: func.isRequired,
 };

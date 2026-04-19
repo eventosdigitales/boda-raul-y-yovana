@@ -8,6 +8,11 @@ const MINUTE_PER_SECONDS = 60;
 
 const getEpochTime = () => Math.floor(new Date().getTime() / 1000);
 
+const getIsWeddingDay = () => {
+  const bolivia = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/La_Paz' }));
+  return bolivia.getFullYear() === 2026 && bolivia.getMonth() === 4 && bolivia.getDate() === 9;
+};
+
 function useDateCountdown() {
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
@@ -17,6 +22,7 @@ function useDateCountdown() {
   const [currentEpochTime, setCurrentEpochTime] = useState(() => getEpochTime());
   const [timeHasRunOut, setTimeHasRunOut] = useState(false);
   const [isEventOver, setIsEventOver] = useState(0);
+  const [isWeddingDay] = useState(() => getIsWeddingDay());
 
   const calculateTimeLeft = useCallback(() => {
     const TIME_LEFT = EPOCH_START_EVENT - currentEpochTime;
@@ -55,7 +61,7 @@ function useDateCountdown() {
     return () => clearInterval(interval);
   }, [calculateTimeLeft, timeHasRunOut]);
 
-  return { days, hours, minutes, seconds, timeHasRunOut, isEventOver };
+  return { days, hours, minutes, seconds, timeHasRunOut, isEventOver, isWeddingDay };
 }
 
 export default useDateCountdown;
